@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Town.tscn" type="PackedScene" id=1]
+
+[node name="Overall" type="Node2D" index="0"]
+
+[node name="Town" parent="." index="0" instance=ExtResource( 1 )]
+
+
