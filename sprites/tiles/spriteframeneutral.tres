@@ -1,0 +1,28 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=2]
+
+[ext_resource path="res://sprites/tiles/building0.png" type="Texture" id=1]
+[ext_resource path="res://sprites/tiles/building1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/tiles/park0.png" type="Texture" id=3]
+[ext_resource path="res://sprites/tiles/park1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/tiles/factory0.png" type="Texture" id=5]
+
+[resource]
+
+resource_name = "sNeutral"
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "building",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "park",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "factory",
+"speed": 5.0
+} ]
+

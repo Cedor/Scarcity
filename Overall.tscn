@@ -1,9 +1,31 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Town.tscn" type="PackedScene" id=1]
+[ext_resource path="res://TileSetTown.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actionContainer.gd" type="Script" id=2]
 
 [node name="Overall" type="Node2D" index="0"]
 
-[node name="Town" parent="." index="0" instance=ExtResource( 1 )]
+[node name="node2D" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 407.029, 296.021 )
+
+[node name="actionContainer" type="HBoxContainer" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -3.0
+margin_top = 473.0
+margin_right = 1026.0
+margin_bottom = 598.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 2 )
 
 

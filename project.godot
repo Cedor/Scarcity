@@ -11,8 +11,40 @@ config_version=3
 [application]
 
 config/name="ScarcityV2"
+run/main_scene="res://Overall.tscn"
 config/icon="res://icon.png"
+
+[importer_defaults]
+
+bitmap={
+"create_from": 0,
+"threshold": 0.5
+}
+texture={
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+
+[node]
+
+name_casing=1
 
 [rendering]
 
+quality/intended_usage/framebuffer_allocation=0
+quality/shadows/filter_mode=0
 environment/default_environment="res://default_env.tres"

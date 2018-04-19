@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprites/tiles/spriteframebar.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://sprites/tiles/spriteframewarehouse.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://sprites/tiles/spriteframepolice.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://sprites/tiles/spriteframeneutral.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://Neutral.gd" type="Script" id=5]
+
+[node name="node2D" type="Node2D"]
+
+[node name="Bar" type="AnimatedSprite" parent="." index="0"]
+
+frames = ExtResource( 1 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="Warehouse" type="AnimatedSprite" parent="." index="1"]
+
+position = Vector2( 64, 0 )
+frames = ExtResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="Police" type="AnimatedSprite" parent="." index="2"]
+
+position = Vector2( 0, 64 )
+frames = ExtResource( 3 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="Neutral" type="AnimatedSprite" parent="." index="3"]
+
+position = Vector2( 64, 64 )
+frames = ExtResource( 4 )
+animation = "building"
+playing = true
+centered = false
+script = ExtResource( 5 )
+
+
