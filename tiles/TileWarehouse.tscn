@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sprites/tiles/spriteframewarehouse.tres" type="SpriteFrames" id=1]
+
+[node name="Warehouse" type="AnimatedSprite"]
+
+position = Vector2( 64, 0 )
+frames = ExtResource( 1 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+

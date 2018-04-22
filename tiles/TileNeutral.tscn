@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/tiles/spriteframeneutral.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Neutral.gd" type="Script" id=2]
+
+[node name="Neutral" type="AnimatedSprite"]
+
+position = Vector2( 64, 64 )
+frames = ExtResource( 1 )
+animation = "building"
+frame = 1
+playing = true
+centered = false
+script = ExtResource( 2 )
+
+

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sprites/tiles/spriteframebar.tres" type="SpriteFrames" id=1]
+
+[node name="Bar" type="AnimatedSprite"]
+
+frames = ExtResource( 1 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+
