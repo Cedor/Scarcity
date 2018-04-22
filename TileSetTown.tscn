@@ -12,7 +12,6 @@
 
 frames = ExtResource( 1 )
 animation = "default"
-frame = 1
 playing = true
 centered = false
 
@@ -30,7 +29,6 @@ centered = false
 position = Vector2( 0, 64 )
 frames = ExtResource( 3 )
 animation = "default"
-frame = 1
 playing = true
 centered = false
 _sections_unfolded = [ "Transform" ]
@@ -40,6 +38,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 64, 64 )
 frames = ExtResource( 4 )
 animation = "building"
+frame = 1
 playing = true
 centered = false
 script = ExtResource( 5 )

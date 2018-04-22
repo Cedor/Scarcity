@@ -48,4 +48,6 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Size Flags" ]
 
+[connection signal="pressed" from="." to="." method="_on_actionButton_pressed"]
+
 

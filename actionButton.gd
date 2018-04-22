@@ -1,8 +1,7 @@
 extends TextureButton
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+signal askForReport
+
 var label = "Toto"
 var costKid = 0
 var costGuy = 0
@@ -61,3 +60,7 @@ func setCosts(dollars = 0, kid = 0, guy = 0):
 
 func setDelay(value):
 	self.delay = value
+
+func _on_actionButton_pressed():
+	emit_signal("askForReport")
+	pass # replace with function body
