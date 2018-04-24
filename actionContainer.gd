@@ -6,7 +6,7 @@ extends Container
 
 func _ready():
 	var scene = preload("actionButton.tscn")
-	var reports = get_node("/root/Overall/reportContainer")
+	var reports = get_node("/root/Overall/GUILayer/reportContainer")
 	
 	var actionRecruit = scene.instance()
 	add_child(actionRecruit)
