@@ -6,7 +6,6 @@
 
 frames = ExtResource( 1 )
 animation = "default"
-frame = 1
 playing = true
 centered = false
 

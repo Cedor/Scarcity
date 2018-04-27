@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Town.gd" type="Script" id=1]
 
-[node name="Town" type="Node2D"]
+[node name="Town" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Cell", "Collision", "Grow Direction", "Hint", "Pause", "Rect", "Size Flags", "Theme", "Transform" ]
