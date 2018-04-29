@@ -1,20 +1,43 @@
 extends TextureButton
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var delay = 0
+var label
+var gainKid = 0
+var gainGuy = 0
+var gainDollars = 0
+var gainCleanars = 0
+var gainSatisfaction = 0
 
 func _ready():
-    # Called every time the node is added to the scene.
-    # Initialization here
+    labelInit()
+    slotInit()
+    updateDataText()
     pass
 
-#func _process(delta):
-#    # Called every frame. Delta is time since last frame.
-#    # Update game logic here.
-#    pass
+func updateDataText():
+    if delay > 0:
+        #il faut afficher le delay, pas le gain du report
+        pass
+    else :
+        label.text = "Des trucs en plus\nEt en plus des trucs"
+        pass
 
+    
+func setDelay(value):
+    self.delay = value
+
+func labelInit():
+    label = Label.new()
+    add_child(label)
+    label.add_color_override("font_color", Color(0,0,0))
+    #Ajuster la position.
+
+func slotInit():
+    connect("pressed", self, "_on_reportFile_pressed")
+    pass
 
 func _on_reportFile_pressed():
-    queue_free()
-    pass # replace with function body
+    if delay < 1:
+        queue_free()
+        #envoyer la mise à jour des ressources
+    

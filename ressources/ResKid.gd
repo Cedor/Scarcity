@@ -1,7 +1,7 @@
 extends "res://Ressource.gd"
 
 func _ready():
-    var imgFile = "res://sprites/GUI/policeman.png"
+    var imgFile = "res://sprites/GUI/kid.png"
     var img = Image.new()
     var itex = ImageTexture.new()
     img.load(imgFile)
@@ -9,5 +9,4 @@ func _ready():
     image.texture = itex
 
     label.text = "None"
-    
-    pass
+
