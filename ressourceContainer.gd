@@ -59,16 +59,16 @@ func onRewardSend(rewards):
     for key in rewards.keys():
         match key :
             "kid" :
-                self.kids.decrease(rewards[key])
+                self.kids.increase(rewards[key])
             "guy" :
-                self.guys.decrease(rewards[key])
+                self.guys.increase(rewards[key])
             "dollars" :
-                self.dollars.decrease(rewards[key])
+                self.dollars.increase(rewards[key])
             "cleanars" :
-                self.cleanars.decrease(rewards[key])
+                self.cleanars.increase(rewards[key])
             "suspicion" :
-                self.suspicion.decrease(rewards[key])
+                self.suspicion.increase(rewards[key])
             "satisfaction" :
-                self.satisfaction.decrease(rewards[key])
+                self.satisfaction.increase(rewards[key])
             _ :
                 pass

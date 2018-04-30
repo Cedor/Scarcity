@@ -1,5 +1,7 @@
 extends TextureButton
 
+signal sendReward
+
 var delay = 0
 var rewards = {}
 var waitMessage = ""
@@ -7,7 +9,7 @@ var label
 
 func _ready():
     labelInit()
-    slotInit()
+    connexion()
     updateDataText()
 
 func updateDataText():
@@ -82,14 +84,17 @@ func labelInit():
     self.label.add_color_override("font_color", Color(0,0,0))
     #Ajuster la position.
 
-func slotInit():
+func connexion():
+    var ressources = get_node("/root/Overall/GUILayer/ressourceContainer")
+    connect("sendReward", ressources, "onRewardSend")
     connect("pressed", self, "_on_reportFile_pressed")
     pass
 
 func _on_reportFile_pressed():
     if delay < 1:
+        if !rewards.empty():
+            emit_signal("sendReward",rewards)
         queue_free()
-        #envoyer la mise à jour des ressources
 
 func turnDone():
     if delay > 0 :
