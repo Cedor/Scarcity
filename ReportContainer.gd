@@ -14,8 +14,9 @@ func _ready():
     add_child(report)
     pass
 
-func _onReportCreationAsked():
+func _onReportCreationAsked(delay, rewards):
     var scene = preload("ReportFile.tscn")
     var report = scene.instance()
+    report.setDelay(delay)
+    report.setRewards(rewards)
     add_child(report)
-    

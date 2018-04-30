@@ -1,6 +1,7 @@
 extends TextureButton
 
 var delay = 0
+var rewards = {}
 var label
 var gainKid = 0
 var gainGuy = 0
@@ -12,24 +13,71 @@ func _ready():
     labelInit()
     slotInit()
     updateDataText()
-    pass
 
 func updateDataText():
+    if !label :
+        return
     if delay > 0:
         #il faut afficher le delay, pas le gain du report
         pass
     else :
-        label.text = "Des trucs en plus\nEt en plus des trucs"
-        pass
+        var textLabel = ""
+        for key in rewards.keys():
+            match key :
+                "kid" :
+                    textLabel += str(rewards["kid"]) + " Kid"
+                    if rewards["kid"] > 1 :
+                        textLabel += "s"
+                "guy" :
+                    if !textLabel.empty():
+                        textLabel += ", "
+                    textLabel += str(rewards["guy"]) + " Guy"
+                    if rewards["guy"] > 1 :
+                        textLabel += "s"
+                "dollars" :
+                    if !textLabel.empty():
+                        textLabel += ", "
+                    textLabel += str(rewards["dollars"]) + " Dollar"
+                    if rewards["dollars"] > 1 :
+                        textLabel += "s"
+                "cleanars" :
+                    if !textLabel.empty():
+                        textLabel += ", "
+                    textLabel += str(rewards["cleanars"]) + " Clean dollar"
+                    if rewards["cleanars"] > 1 :
+                        textLabel += "s"
+                "suspiscion" :
+                    if !textLabel.empty():
+                        textLabel += ", "
+                    textLabel += str(rewards["suspiscion"]) + " Suspiscion"
+                    if rewards["suspiscion"] > 1 :
+                        textLabel += "s"
+                "satisfaction" :
+                    if !textLabel.empty():
+                        textLabel += ", "
+                    textLabel += str(rewards["satisfaction"]) + " Satisfaction"
+                    if rewards["suspiscion"] > 1 :
+                        textLabel += "s"
+                _ :
+                    pass
+        if textLabel.empty():
+            textLabel = "Empty report"
+        self.label.text = textLabel
+
+func setRewards(rewards):
+    self.rewards = rewards            
+    updateDataText()
 
     
 func setDelay(value):
-    self.delay = value
+    if self.delay != value :
+        self.delay = value
+        updateDataText()
 
 func labelInit():
-    label = Label.new()
-    add_child(label)
-    label.add_color_override("font_color", Color(0,0,0))
+    self.label = Label.new()
+    add_child(self.label)
+    self.label.add_color_override("font_color", Color(0,0,0))
     #Ajuster la position.
 
 func slotInit():

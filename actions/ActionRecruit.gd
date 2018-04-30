@@ -9,7 +9,9 @@ func _ready():
 
 func costsInit():
     setCostDollars(5000)
-    pass
+
+func rewardsInit():
+    self.rewards["kid"] = 1
 
 func labelInit():
     .labelInit()

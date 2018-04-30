@@ -5,7 +5,7 @@
 [ext_resource path="res://actionContainer.gd" type="Script" id=3]
 [ext_resource path="res://Town.tscn" type="PackedScene" id=4]
 
-[node name="Overall" type="Node2D"]
+[node name="Overall" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
