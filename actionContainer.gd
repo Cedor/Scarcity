@@ -11,11 +11,12 @@ func _ready():
     var actionRecruit = scene.instance()
     add_child(actionRecruit)
     
-    scene = preload("actionButton.tscn")
+    scene = preload("res://actions/ActionUpgrade.tscn")
     var actionUpgrade = scene.instance()
     add_child(actionUpgrade)
 #    actionUpgrade.connect("askForReport", reports, "_onReportCreationAsked")
     
+    scene = preload("actionButton.tscn")
     var actionWash = scene.instance()
     add_child(actionWash)
 #    actionWash.connect("askForReport", reports, "_onReportCreationAsked")
