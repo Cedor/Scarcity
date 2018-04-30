@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://ReportContainer.gd" type="Script" id=1]
-[ext_resource path="res://ressourceContainer.gd" type="Script" id=2]
-[ext_resource path="res://actionContainer.gd" type="Script" id=3]
-[ext_resource path="res://Town.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Overall.gd" type="Script" id=1]
+[ext_resource path="res://ReportContainer.gd" type="Script" id=2]
+[ext_resource path="res://ressourceContainer.gd" type="Script" id=3]
+[ext_resource path="res://actionContainer.gd" type="Script" id=4]
+[ext_resource path="res://Town.tscn" type="PackedScene" id=5]
 
 [node name="Overall" type="Node2D" index="0"]
 
+script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="GUILayer" type="CanvasLayer" parent="." index="0"]
@@ -31,7 +33,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
 [node name="ressourceContainer" type="HBoxContainer" parent="GUILayer" index="1"]
@@ -47,7 +49,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
 
 [node name="actionContainer" type="HBoxContainer" parent="GUILayer" index="2"]
@@ -64,9 +66,9 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="Town" parent="." index="1" instance=ExtResource( 4 )]
+[node name="Town" parent="." index="1" instance=ExtResource( 5 )]
 
 

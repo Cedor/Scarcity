@@ -1,17 +1,19 @@
 extends TextureButton
 
 signal askForReport
+signal endTurn
 
 var label 
-var delay = 0
 var costs = {}
 var rewards = {} #{"kid" : 0, "guy" : 0, "dollars" : 0, "cleanars" : 0, "suspiscion" : 0, "satisfation" : 0}
-
+var delay = 0
+var report = false
+var reportWait = ""
 
 func _ready():
     textureInit()    
     labelInit()
-    slotInit()
+    connexions()
     costsInit()
     rewardsInit()
     updateData()
@@ -91,7 +93,8 @@ func labelInit():
     #Ajuster la position.
 
 func _on_actionButton_pressed():
-    emit_signal("askForReport", self.delay, self.rewards)
+    if self.report:
+        emit_signal("askForReport", self.delay, self.rewards, self.reportWait)
 
 func textureInit():
     var imgFile = "res://sprites/GUI/action.png"
@@ -101,7 +104,9 @@ func textureInit():
     itex.create_from_image(img)
     self.texture_normal = itex
     
-func slotInit():
+func connexions():
+    var reports = get_node("/root/Overall/GUILayer/reportContainer")
+    connect("askForReport", reports, "_onReportCreationAsked")
     connect("pressed", self, "_on_actionButton_pressed")
     
 

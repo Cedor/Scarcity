@@ -1,22 +1,36 @@
 extends HBoxContainer
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var dollars
+var kids
+var guys
+var satisfaction
+var suspicion
+var cleanars
+
 
 func _ready():
-    # Called every time the node is added to the scene.
-    # Initialization here
-    var scene = preload("Ressource.tscn")
-    var dollarRessource = scene.instance()
-    add_child(dollarRessource)
-    scene = preload("res://ressources/ResKid.tscn") 
-    var kidRessource = scene.instance()
-    add_child(kidRessource)
-#    var guyRessource = scene.instance()
-#    add_child(guyRessource)
-#    var satisfactionRessource = scene.instance()
-#    add_child(satisfactionRessource)
-    scene = preload("res://ressources/ResSuspicion.tscn")    
-    var suspicionRessource = scene.instance()
-    add_child(suspicionRessource)
+    var scene = preload("res://Ressource.tscn")
+
+    self.dollars = scene.instance()
+    self.dollars.setType("dollars")
+    add_child(self.dollars)
+
+    self.kids = scene.instance()
+    self.kids.setType("kid")
+    add_child(self.kids)
+
+    self.guys = scene.instance()
+    self.guys.setType("guy")
+    add_child(self.guys)
+
+    self.satisfaction = scene.instance()
+    self.satisfaction.setType("satisfaction")
+    add_child(self.satisfaction)
+
+    self.suspicion = scene.instance()
+    self.suspicion.setType("suspicion")
+    add_child(self.suspicion)
+
+    self.cleanars = scene.instance()
+    self.cleanars.setType("cleanars")
+    add_child(self.cleanars)

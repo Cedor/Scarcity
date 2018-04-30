@@ -5,18 +5,16 @@ extends VBoxContainer
 # var b = "textvar"
 
 func _ready():
-    var scene = preload("ReportFile.tscn")
-    var report = scene.instance()
-    add_child(report)
-    report = scene.instance()
-    add_child(report)
-    report = scene.instance()
-    add_child(report)
     pass
 
-func _onReportCreationAsked(delay, rewards):
+func _onReportCreationAsked(delay, rewards, waitMessage):
     var scene = preload("ReportFile.tscn")
     var report = scene.instance()
     report.setDelay(delay)
     report.setRewards(rewards)
+    report.setWaitMessage(waitMessage)    
     add_child(report)
+    
+func turnDone():
+    for N in self.get_children():
+        N.turnDone()

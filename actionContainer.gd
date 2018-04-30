@@ -10,20 +10,19 @@ func _ready():
     var scene = preload("res://actions/ActionRecruit.tscn")
     var actionRecruit = scene.instance()
     add_child(actionRecruit)
-    actionRecruit.connect("askForReport", reports, "_onReportCreationAsked")
     
     scene = preload("actionButton.tscn")
     var actionUpgrade = scene.instance()
     add_child(actionUpgrade)
-    actionUpgrade.connect("askForReport", reports, "_onReportCreationAsked")
+#    actionUpgrade.connect("askForReport", reports, "_onReportCreationAsked")
     
     var actionWash = scene.instance()
     add_child(actionWash)
-    actionWash.connect("askForReport", reports, "_onReportCreationAsked")
+#    actionWash.connect("askForReport", reports, "_onReportCreationAsked")
     
     var actionBribe = scene.instance()
     add_child(actionBribe)
-    actionBribe.connect("askForReport", reports, "_onReportCreationAsked")
+#    actionBribe.connect("askForReport", reports, "_onReportCreationAsked")
     
 
 

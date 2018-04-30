@@ -2,12 +2,8 @@ extends TextureButton
 
 var delay = 0
 var rewards = {}
+var waitMessage = ""
 var label
-var gainKid = 0
-var gainGuy = 0
-var gainDollars = 0
-var gainCleanars = 0
-var gainSatisfaction = 0
 
 func _ready():
     labelInit()
@@ -17,11 +13,14 @@ func _ready():
 func updateDataText():
     if !label :
         return
-    if delay > 0:
-        #il faut afficher le delay, pas le gain du report
-        pass
+    var textLabel = ""
+    if delay > 0 :
+        if waitMessage.length() > 0:
+            textLabel = waitMessage + "\n" 
+        textLabel += str(delay) + " turn"
+        if delay > 1 :
+            textLabel += "s"
     else :
-        var textLabel = ""
         for key in rewards.keys():
             match key :
                 "kid" :
@@ -60,19 +59,22 @@ func updateDataText():
                         textLabel += "s"
                 _ :
                     pass
-        if textLabel.empty():
-            textLabel = "Empty report"
-        self.label.text = textLabel
+    if textLabel.empty():
+        textLabel = "Empty report"
+    self.label.text = textLabel
 
 func setRewards(rewards):
     self.rewards = rewards            
     updateDataText()
-
     
 func setDelay(value):
     if self.delay != value :
         self.delay = value
         updateDataText()
+
+func setWaitMessage(waitMessage):
+    self.waitMessage = waitMessage
+    updateDataText()
 
 func labelInit():
     self.label = Label.new()
@@ -88,4 +90,8 @@ func _on_reportFile_pressed():
     if delay < 1:
         queue_free()
         #envoyer la mise à jour des ressources
-    
+
+func turnDone():
+    if delay > 0 :
+        self.delay-=1
+        updateDataText()
