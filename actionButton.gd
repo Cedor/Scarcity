@@ -1,6 +1,7 @@
 extends TextureButton
 
 signal askForReport
+signal askForPayment
 signal endTurn
 
 var label 
@@ -45,11 +46,11 @@ func updateData():
                 hint_tooltip += str(costs["cleanars"]) + " Clean dollar"
                 if costs["cleanars"] > 1 :
                     hint_tooltip += "s"
-            "suspiscion" :
+            "suspicion" :
                 if !hint_tooltip.empty():
                     hint_tooltip += ", "
-                hint_tooltip += str(costs["suspiscion"]) + " Suspiscion"
-                if costs["suspiscion"] > 1 :
+                hint_tooltip += str(costs["suspicion"]) + " Suspicion"
+                if costs["suspicion"] > 1 :
                     hint_tooltip += "s"
             "satisfaction" :
                 if !hint_tooltip.empty():
@@ -93,6 +94,8 @@ func labelInit():
     #Ajuster la position.
 
 func _on_actionButton_pressed():
+    if !costs.empty():
+        emit_signal("askForPayment", costs)
     if self.report:
         emit_signal("askForReport", self.delay, self.rewards, self.reportWait)
 
@@ -107,6 +110,8 @@ func textureInit():
 func connexions():
     var reports = get_node("/root/Overall/GUILayer/reportContainer")
     connect("askForReport", reports, "_onReportCreationAsked")
+    var ressources = get_node("/root/Overall/GUILayer/ressourceContainer")
+    connect("askForPayment", ressources, "onPaymentAsked")
     connect("pressed", self, "_on_actionButton_pressed")
     
 

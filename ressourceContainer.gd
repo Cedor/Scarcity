@@ -13,6 +13,7 @@ func _ready():
 
     self.dollars = scene.instance()
     self.dollars.setType("dollars")
+    self.dollars.increase(15000)
     add_child(self.dollars)
 
     self.kids = scene.instance()
@@ -34,3 +35,40 @@ func _ready():
     self.cleanars = scene.instance()
     self.cleanars.setType("cleanars")
     add_child(self.cleanars)
+
+func onPaymentAsked(costs):
+     for key in costs.keys():
+        match key :
+            "kid" :
+                self.kids.decrease(costs[key])
+            "guy" :
+                self.guys.decrease(costs[key])
+            "dollars" :
+                self.dollars.decrease(costs[key])
+            "cleanars" :
+                self.cleanars.decrease(costs[key])
+            "suspicion" :
+                self.suspicion.decrease(costs[key])
+            "satisfaction" :
+                self.satisfaction.decrease(costs[key])
+            _ :
+                pass
+
+
+func onRewardSend(rewards):
+    for key in rewards.keys():
+        match key :
+            "kid" :
+                self.kids.decrease(rewards[key])
+            "guy" :
+                self.guys.decrease(rewards[key])
+            "dollars" :
+                self.dollars.decrease(rewards[key])
+            "cleanars" :
+                self.cleanars.decrease(rewards[key])
+            "suspicion" :
+                self.suspicion.decrease(rewards[key])
+            "satisfaction" :
+                self.satisfaction.decrease(rewards[key])
+            _ :
+                pass

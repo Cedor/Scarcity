@@ -45,17 +45,17 @@ func updateDataText():
                     textLabel += str(rewards["cleanars"]) + " Clean dollar"
                     if rewards["cleanars"] > 1 :
                         textLabel += "s"
-                "suspiscion" :
+                "suspicion" :
                     if !textLabel.empty():
                         textLabel += ", "
-                    textLabel += str(rewards["suspiscion"]) + " Suspiscion"
-                    if rewards["suspiscion"] > 1 :
+                    textLabel += str(rewards["suspicion"]) + " Suspicion"
+                    if rewards["suspicion"] > 1 :
                         textLabel += "s"
                 "satisfaction" :
                     if !textLabel.empty():
                         textLabel += ", "
                     textLabel += str(rewards["satisfaction"]) + " Satisfaction"
-                    if rewards["suspiscion"] > 1 :
+                    if rewards["satisfaction"] > 1 :
                         textLabel += "s"
                 _ :
                     pass
