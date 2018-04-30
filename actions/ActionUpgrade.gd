@@ -1,21 +1,21 @@
 extends "res://actionButton.gd"
 
+
 func _ready():
     pass
 
 func costsInit():
-    setCostDollars(5000)
+    setCostDollars(3000)
+    setCostKid(1)
 
 func rewardsInit():
     self.report = true
-    self.reportMessages["wait"] = "Recruitment in progress."
     self.reportMessages["done"] = "Recruited:"
-#    self.delay = 2
-    self.rewards["kid"] = 1
+    self.rewards["guy"] = 1
 
 func labelInit():
     .labelInit()
-    setLabel("RECRUIT")
+    setLabel("Upgrade")
 
 func connexions():
     .connexions()

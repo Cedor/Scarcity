@@ -7,12 +7,12 @@ extends VBoxContainer
 func _ready():
     pass
 
-func _onReportCreationAsked(delay, rewards, waitMessage):
+func _onReportCreationAsked(delay, rewards, messages):
     var scene = preload("ReportFile.tscn")
     var report = scene.instance()
     report.setDelay(delay)
     report.setRewards(rewards)
-    report.setWaitMessage(waitMessage)    
+    report.setMessages(messages)    
     add_child(report)
     
 func turnDone():

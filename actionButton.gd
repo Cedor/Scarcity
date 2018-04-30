@@ -6,10 +6,11 @@ signal endTurn
 
 var label 
 var costs = {}
-var rewards = {} #{"kid" : 0, "guy" : 0, "dollars" : 0, "cleanars" : 0, "suspiscion" : 0, "satisfation" : 0}
+var rewards = {} #{"kid" : 0, "guy" : 0, "dollars" : 0, "cleanars" : 0, "suspicion" : 0, "satisfaction" : 0}
 var delay = 0
 var report = false
-var reportWait = ""
+var reportMessages = {}#{"wait" : "", "done" : ""}
+
 
 func _ready():
     textureInit()    
@@ -97,7 +98,7 @@ func _on_actionButton_pressed():
     if !costs.empty():
         emit_signal("askForPayment", costs)
     if self.report:
-        emit_signal("askForReport", self.delay, self.rewards, self.reportWait)
+        emit_signal("askForReport", self.delay, self.rewards, self.reportMessages)
 
 func textureInit():
     var imgFile = "res://sprites/GUI/action.png"

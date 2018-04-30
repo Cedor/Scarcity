@@ -5,6 +5,7 @@ signal sendReward
 var delay = 0
 var rewards = {}
 var waitMessage = ""
+var doneMessage = ""
 var label
 
 func _ready():
@@ -61,6 +62,8 @@ func updateDataText():
                         textLabel += "s"
                 _ :
                     pass
+    if doneMessage.length() > 0:
+        textLabel = doneMessage + "\n" + textLabel
     if textLabel.empty():
         textLabel = "Empty report"
     self.label.text = textLabel
@@ -74,8 +77,15 @@ func setDelay(value):
         self.delay = value
         updateDataText()
 
-func setWaitMessage(waitMessage):
-    self.waitMessage = waitMessage
+func setMessages(messages):
+    for key in messages.keys():
+        match key:
+            "wait":
+                self.waitMessage = messages["wait"]
+            "done":
+                self.doneMessage = messages["done"]
+            _:
+                pass
     updateDataText()
 
 func labelInit():
